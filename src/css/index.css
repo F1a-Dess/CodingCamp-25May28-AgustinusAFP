@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;850&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* Force Tailwind v4 to toggle dark: variant using the .dark class instead of media queries */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  --color-sage-50: #f2fcf3;
+  --color-sage-100: #e2ede5;
+  --color-sage-200: #bbf7d0;
+  --color-sage-300: #86efac;
+  --color-sage-400: #4ade80;
+  --color-sage-500: #22c55e;
+  --color-sage-600: #16a34a;
+  --color-sage-700: #15803d;
+  --color-sage-800: #166534;
+  --color-sage-900: #14532d;
+  --color-sage-950: #0c1910;
+}
+
+/* Custom glass card layout implementation using robust CSS custom properties */
+.glass-card {
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(34, 197, 94, 0.1);
+  --border-radius: 16px;
+  --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+}
+
+.dark .glass-card,
+html.dark .glass-card,
+body.dark .glass-card,
+:root.dark .glass-card {
+  --glass-bg: rgba(12, 23, 16, 0.96) !important;
+  --glass-border: rgba(34, 197, 94, 0.18) !important;
+  --glass-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Custom fade integrations and base setups */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-sage-50);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark,
+.dark body,
+html.dark body {
+  background-color: var(--color-sage-950);
+}
+
+/* Custom scrollbar styled for elegance */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-200);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-sage-800);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-300);
+}

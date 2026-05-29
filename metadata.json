@@ -1,0 +1,6 @@
+{
+  "name": "Expense & Budget Visualizer",
+  "description": "A responsive client-side budget and expense tracker with dynamic chart visualizations and dark mode support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
